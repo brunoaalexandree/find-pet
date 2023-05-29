@@ -1,11 +1,11 @@
+import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './styles/global';
+import GlobalTheme from './styles/theme';
 
 export function App() {
   return (
-    <>
-      <h1>Rolou muito!</h1>
-
+    <ThemeProvider theme={GlobalTheme}>
       <GlobalStyle />
-    </>
+    </ThemeProvider>
   );
 }
