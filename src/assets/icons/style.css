@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'Zenit';
+  src:  url('fonts/Zenit.eot?ewnx46');
+  src:  url('fonts/Zenit.eot?ewnx46#iefix') format('embedded-opentype'),
+    url('fonts/Zenit.ttf?ewnx46') format('truetype'),
+    url('fonts/Zenit.woff?ewnx46') format('woff'),
+    url('fonts/Zenit.svg?ewnx46#Zenit') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'Zenit' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-search:before {
+  content: "\e901";
+}
+.icon-heart:before {
+  content: "\e900";
+}
