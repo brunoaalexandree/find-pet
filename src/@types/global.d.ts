@@ -18,6 +18,7 @@ declare module 'styled-components' {
         450: string;
         400: string;
         300: string;
+        250: string;
       };
       white: string;
       black: string;
