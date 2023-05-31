@@ -18,6 +18,7 @@ const GlobalTheme = {
       400: '#D0D4D7',
       300: '#E7E7E8',
       250: '#E7E7E7',
+      200: '#F6F8FB',
     },
     white: '#FFFFFF',
     black: '#000000',
