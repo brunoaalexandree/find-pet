@@ -1,12 +1,12 @@
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './styles/global';
 import GlobalTheme from './styles/theme';
-import { Login } from './presentation/flows/SignedOff/Login';
+import { Register } from './presentation/flows/SignedOff/Register';
 
 export function App() {
   return (
     <ThemeProvider theme={GlobalTheme}>
-      <Login />
+      <Register />
       <GlobalStyle />
     </ThemeProvider>
   );
