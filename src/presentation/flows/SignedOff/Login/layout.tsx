@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 
 import { Input } from '../../../../components/Base/Input';
 import { useTheme } from 'styled-components';
@@ -19,13 +19,15 @@ import {
   RightContent,
   SocialButtonsContainer,
 } from './styles';
+import useLogin from '../../../hooks/useLogin';
 
 export function LoginLayout() {
-  const { handleSubmit } = useForm();
+  const { handleSubmit, control } = useForm();
   const { colors } = useTheme();
+  const { onLogin, error } = useLogin();
 
-  function handleLogin(data: any) {
-    console.log({ data });
+  async function handleLogin(data: any) {
+    await onLogin(data);
   }
 
   return (
@@ -44,8 +46,22 @@ export function LoginLayout() {
       <RightContent>
         <LoginForm onSubmit={handleSubmit(handleLogin)}>
           <h1>Sign In</h1>
-          <Input labelText="Username or Email" />
-          <Input labelText="Password" type="password" />
+          <Controller
+            name="email"
+            control={control}
+            defaultValue=""
+            render={({ field }) => (
+              <Input {...field} labelText="Username or Email" />
+            )}
+          />
+          <Controller
+            name="password"
+            control={control}
+            defaultValue=""
+            render={({ field }) => (
+              <Input {...field} labelText="Password" type="password" />
+            )}
+          />
           <Button
             text="Sign In"
             paddingY={11}
