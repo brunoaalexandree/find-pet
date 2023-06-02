@@ -4,6 +4,7 @@ export const Container = styled.div`
   width: 100%;
   max-width: 1184px;
   margin: 0 auto;
+  background: #fff;
 
   display: flex;
   align-items: center;
@@ -12,15 +13,17 @@ export const Container = styled.div`
   border-radius: 16px;
   border: 1px solid ${(props) => props.theme.colors.gray[250]};
 
-  /* padding: 32px; */
-  padding-top: 24px;
-  padding-bottom: 24px;
+  padding: 32px;
+
+  -webkit-box-shadow: 0px 0px 200px 0px rgba(243, 243, 243, 1);
+  -moz-box-shadow: 0px 0px 200px 0px rgba(243, 243, 243, 1);
+  box-shadow: 0px 0px 200px 0px rgba(243, 243, 243, 1);
 `;
 
 export const Content = styled.div`
   width: 100%;
   max-width: 1104px;
-  height: 64px;
+  height: 32px;
 
   display: flex;
   flex-direction: row;
@@ -28,30 +31,22 @@ export const Content = styled.div`
   justify-content: space-between;
 
   SearchIcon {
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
   }
 
   input {
     width: 100%;
-    height: 34px;
-    padding: 24px 8px;
+    height: 32px;
+    padding: 0px 8px;
     border: none;
+    font-size: 1.25rem;
   }
 
-  div {
-    width: 100%;
-    max-width: 328px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-
-    select {
-      width: 160px;
-      height: 64px;
-      border: none;
-      font-size: 1rem;
-    }
+  select {
+    width: 160px;
+    height: 32px;
+    border: none;
+    font-size: 1.25rem;
   }
 `;
