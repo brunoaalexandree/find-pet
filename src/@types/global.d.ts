@@ -17,9 +17,11 @@ declare module 'styled-components' {
         800: string;
         450: string;
         400: string;
+        350: string;
         300: string;
         250: string;
         200: string;
+        100: string;
       };
       white: string;
       black: string;

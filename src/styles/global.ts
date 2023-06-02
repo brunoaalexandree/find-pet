@@ -50,6 +50,10 @@ export const GlobalStyle = createGlobalStyle`
       font-weight: 700;
     }
 
+    li {
+      list-style: none;
+    }
+
     button {
       cursor: pointer;
     }

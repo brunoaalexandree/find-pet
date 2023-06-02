@@ -10,14 +10,13 @@ export function SearchBar() {
       <Content>
         <SearchIcon size={36} color={colors.text.title} />
         <input placeholder="What are you searching for?" />
-        <div>
-          <select>
-            <option>All pets</option>
-            <option>Cats</option>
-            <option>Dogs</option>
-          </select>
+        <select>
+          <option>All pets</option>
+          <option>Cats</option>
+          <option>Dogs</option>
+        </select>
 
-          <Button
+        {/* <Button
             background={colors.red[800]}
             backgroundHover={colors.red[700]}
             colorText={colors.white}
@@ -25,8 +24,7 @@ export function SearchBar() {
             width="160px"
             text="Search"
             textSizeInRem="1.5rem"
-          />
-        </div>
+          /> */}
       </Content>
     </Container>
   );
