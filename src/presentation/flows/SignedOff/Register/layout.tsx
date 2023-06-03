@@ -1,4 +1,4 @@
-import { Controller, useForm } from 'react-hook-form';
+import { Controller, FieldError, FieldErrors } from 'react-hook-form';
 
 import { Input } from '../../../../components/Base/Input';
 import { useTheme } from 'styled-components';
@@ -22,10 +22,15 @@ import {
 
 interface IRegisterLayout {
   handleSubmit: () => void;
+  errors: FieldErrors;
   control: any;
 }
 
-export function RegisterLayout({ handleSubmit, control }: IRegisterLayout) {
+export function RegisterLayout({
+  handleSubmit,
+  control,
+  errors,
+}: IRegisterLayout) {
   const { colors } = useTheme();
 
   return (
@@ -47,29 +52,47 @@ export function RegisterLayout({ handleSubmit, control }: IRegisterLayout) {
           <Controller
             name="email"
             control={control}
-            defaultValue=""
             render={({ field }) => (
-              <Input {...field} labelText="Email address" type="email" />
+              <Input
+                {...field}
+                error={errors?.email?.message}
+                labelText="Email address"
+                type="email"
+              />
             )}
           />
           <Controller
             name="name"
             control={control}
-            defaultValue=""
-            render={({ field }) => <Input {...field} labelText="Name" />}
+            render={({ field }) => (
+              <Input
+                {...field}
+                error={errors?.name?.message}
+                labelText="Name"
+              />
+            )}
           />
           <Controller
             name="username"
             control={control}
-            defaultValue=""
-            render={({ field }) => <Input {...field} labelText="Username" />}
+            render={({ field }) => (
+              <Input
+                {...field}
+                error={errors?.username?.message}
+                labelText="Username"
+              />
+            )}
           />
           <Controller
             name="password"
             control={control}
-            defaultValue=""
             render={({ field }) => (
-              <Input {...field} labelText="Password" type="password" />
+              <Input
+                {...field}
+                error={errors?.password?.message}
+                labelText="Password"
+                type="password"
+              />
             )}
           />
           <h2>
@@ -103,9 +126,6 @@ export function RegisterLayout({ handleSubmit, control }: IRegisterLayout) {
               icon={<TwitterIcon size={24} color={colors.gray[900]} />}
             />
           </SocialButtonsContainer>
-          <h2>
-            <span>Not a member? </span> Sign up now
-          </h2>
         </Options>
       </RightContent>
     </Container>
