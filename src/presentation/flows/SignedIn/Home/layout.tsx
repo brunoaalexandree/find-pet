@@ -1,6 +1,10 @@
 import { SearchBar } from '../../../../components/Base/SearchBar';
 import { CardFeed } from '../../../../components/CardFeed';
 import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
+import { FeedContainer } from '../../../../components/FeedContainer/FeedContainer';
+import { Loading } from '../../../../components/Loading';
+import getRandomSize from '../../../../utils/getRandomSizes';
 import {
   Container,
   SearchBox,
@@ -9,19 +13,37 @@ import {
   Content,
 } from './style';
 
-import img01 from '../../../../assets/foto01.png';
-import img02 from '../../../../assets/foto02.png';
-import img03 from '../../../../assets/foto03.png';
+interface IHomeLayout {
+  pets: {
+    id: string;
+    image: string;
+    title: string;
+    description: string;
+    created_at: string;
+    created_by: string;
+  }[];
+  isLoading: boolean;
+  session: any;
+  user: any;
+  authenticated: boolean;
+}
 
-import { FeedContainer } from '../../../../components/FeedContainer/FeedContainer';
-import { Footer } from '../components/Footer';
+export function HomeLayout({
+  pets,
+  isLoading,
+  user,
+  session,
+  authenticated,
+}: IHomeLayout) {
+  if (isLoading) {
+    return <Loading />;
+  }
 
-export function HomeLayout() {
   return (
     <>
       <Container>
         <TopSection>
-          <Header />
+          <Header authenticated={authenticated} />
           <SearchBox>
             <SearchBar />
           </SearchBox>
@@ -29,42 +51,15 @@ export function HomeLayout() {
         </TopSection>
         <Content>
           <FeedContainer>
-            <CardFeed
-              background={img01}
-              cardSize="small"
-              title="Baxter"
-              description="French Bulldoge, 12kg-lbs, caramelo"
-            />
-            <CardFeed
-              background={img02}
-              cardSize="large"
-              title="Baxter"
-              description="French Bulldoge, 12kg-lbs, caramelo"
-            />
-            <CardFeed
-              background={img03}
-              cardSize="small"
-              title="Baxter"
-              description="French Bulldoge, 12kg-lbs, caramelo"
-            />
-            <CardFeed
-              background={img03}
-              cardSize="large"
-              title="Baxter"
-              description="French Bulldoge, 12kg-lbs, caramelo"
-            />
-            <CardFeed
-              background={img02}
-              cardSize="small"
-              title="Baxter"
-              description="French Bulldoge, 12kg-lbs, caramelo"
-            />
-            <CardFeed
-              background={img01}
-              cardSize="large"
-              title="Baxter"
-              description="French Bulldoge, 12kg-lbs, caramelo"
-            />
+            {pets.map((pet) => (
+              <CardFeed
+                key={pet.id}
+                background={pet.image}
+                cardSize={getRandomSize()}
+                title={pet.title}
+                description={pet.description}
+              />
+            ))}
           </FeedContainer>
         </Content>
       </Container>

@@ -1,15 +1,17 @@
 import { InputHTMLAttributes } from 'react';
-import { Container, InputForm } from './styles';
+import { Container, ErrorMsg, InputForm } from './styles';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   labelText: string;
+  error?: string;
 }
 
-export function Input({ labelText, ...props }: InputProps) {
+export function Input({ labelText, error, ...props }: InputProps) {
   return (
     <Container>
       <span>{labelText}</span>
-      <InputForm {...props} />
+      <InputForm error={error ? true : false} {...props} />
+      {error && <ErrorMsg>{error}</ErrorMsg>}
     </Container>
   );
 }

@@ -1,12 +1,36 @@
 import { useTheme } from 'styled-components';
-import LogoImg from '../../../../../assets/logo-black.svg';
+import { Link } from 'react-router-dom';
 import { Button } from '../../../../../components/Base/Button';
 import { HeartIcon } from '../../../../../components/Icons/HeartIcon';
 
-import { Container, Content, LeftContent, Logo, RightContent } from './styles';
+import LogoImg from '../../../../../assets/logo-black.svg';
+import profile from '../../../../../assets/foto02.png';
+import {
+  Container,
+  Content,
+  DropDown,
+  DropDownContainer,
+  LeftContent,
+  Logo,
+  RightContent,
+  UserMenu,
+} from './styles';
+import { ArrowDownIcon } from '../../../../../components/Icons/FacebookIcon copy';
+import useLogin from '../../../../hooks/useLogin';
 
-export function Header() {
+interface IHeader {
+  authenticated: boolean;
+}
+
+export function Header({ authenticated }: IHeader) {
   const { colors } = useTheme();
+  const { onLogout } = useLogin();
+
+  function handleLogout() {
+    console.log('aqui');
+
+    onLogout();
+  }
 
   return (
     <Container>
@@ -29,12 +53,28 @@ export function Header() {
             paddingY={8}
             textSizeInRem="0.875rem"
           />
-          <Button
-            background="transparent"
-            text="Login"
-            textSizeInRem="1.25rem"
-            width="53px"
-          />
+          {!authenticated ? (
+            <Link to="/login">
+              <Button
+                background="transparent"
+                text="Login"
+                textSizeInRem="1.25rem"
+                width="53px"
+              />
+            </Link>
+          ) : (
+            <UserMenu>
+              <div>
+                <img src={profile} />
+                <ArrowDownIcon color={colors.text.title} size={32} />
+              </div>
+              <DropDownContainer>
+                <DropDown onClick={() => handleLogout()}>
+                  <p>Sair</p>
+                </DropDown>
+              </DropDownContainer>
+            </UserMenu>
+          )}
         </RightContent>
       </Content>
     </Container>

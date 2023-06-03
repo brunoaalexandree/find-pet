@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 import backgroundImage from '../../../../assets/background.png';
-import { Button } from '../../../../components/Base/Button';
-import { Divider } from '../../../../components/Base/Divider';
 
 export const Container = styled.main`
   flex: 1;
@@ -36,6 +34,7 @@ export const LeftContent = styled.div`
 
     span {
       color: ${(props) => props.theme.colors.red[800]};
+      text-decoration: none;
     }
 
     margin-bottom: 16px;
