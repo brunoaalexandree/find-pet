@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 
 import { Input } from '../../../../components/Base/Input';
 import { useTheme } from 'styled-components';
@@ -20,13 +20,13 @@ import {
   SocialButtonsContainer,
 } from './styles';
 
-export function RegisterLayout() {
-  const { handleSubmit } = useForm();
-  const { colors } = useTheme();
+interface IRegisterLayout {
+  handleSubmit: () => void;
+  control: any;
+}
 
-  function handleRegister(data: any) {
-    console.log({ data });
-  }
+export function RegisterLayout({ handleSubmit, control }: IRegisterLayout) {
+  const { colors } = useTheme();
 
   return (
     <Container>
@@ -42,12 +42,36 @@ export function RegisterLayout() {
         </p>
       </LeftContent>
       <RightContent>
-        <RegisterForm onSubmit={handleSubmit(handleRegister)}>
+        <RegisterForm onSubmit={handleSubmit}>
           <h1>Create an account</h1>
-          <Input labelText="Email address" type="email" />
-          <Input labelText="Name" />
-          <Input labelText="Username" />
-          <Input labelText="Password" type="password" />
+          <Controller
+            name="email"
+            control={control}
+            defaultValue=""
+            render={({ field }) => (
+              <Input {...field} labelText="Email address" type="email" />
+            )}
+          />
+          <Controller
+            name="name"
+            control={control}
+            defaultValue=""
+            render={({ field }) => <Input {...field} labelText="Name" />}
+          />
+          <Controller
+            name="username"
+            control={control}
+            defaultValue=""
+            render={({ field }) => <Input {...field} labelText="Username" />}
+          />
+          <Controller
+            name="password"
+            control={control}
+            defaultValue=""
+            render={({ field }) => (
+              <Input {...field} labelText="Password" type="password" />
+            )}
+          />
           <h2>
             <span>
               By clicking the “Sign up” button, you agree to Finder Pet

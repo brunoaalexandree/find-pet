@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form';
+import { Control, Controller, FieldErrors } from 'react-hook-form';
 
 import { Input } from '../../../../components/Base/Input';
 import { useTheme } from 'styled-components';
@@ -19,14 +19,16 @@ import {
   RightContent,
   SocialButtonsContainer,
 } from './styles';
+import { Link } from 'react-router-dom';
 
-export function LoginLayout() {
-  const { handleSubmit } = useForm();
+interface ILoginLayout {
+  control: Control<any>;
+  errors: FieldErrors;
+  handleSubmit: () => void;
+}
+
+export function LoginLayout({ control, handleSubmit, errors }: ILoginLayout) {
   const { colors } = useTheme();
-
-  function handleLogin(data: any) {
-    console.log({ data });
-  }
 
   return (
     <Container>
@@ -42,10 +44,31 @@ export function LoginLayout() {
         </p>
       </LeftContent>
       <RightContent>
-        <LoginForm onSubmit={handleSubmit(handleLogin)}>
+        <LoginForm onSubmit={handleSubmit}>
           <h1>Sign In</h1>
-          <Input labelText="Username or Email" />
-          <Input labelText="Password" type="password" />
+          <Controller
+            name="email"
+            control={control}
+            render={({ field }) => (
+              <Input
+                {...field}
+                error={errors?.email?.message}
+                labelText="Username or Email"
+              />
+            )}
+          />
+          <Controller
+            name="password"
+            control={control}
+            render={({ field }) => (
+              <Input
+                {...field}
+                labelText="Password"
+                type="password"
+                error={errors?.password?.message}
+              />
+            )}
+          />
           <Button
             text="Sign In"
             paddingY={11}
@@ -72,7 +95,7 @@ export function LoginLayout() {
             />
           </SocialButtonsContainer>
           <h2>
-            <span>Not a member? </span> Sign up now
+            <span>Not a member? </span> <Link to="/signup">Sign up now</Link>
           </h2>
         </Options>
       </RightContent>

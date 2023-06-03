@@ -11,11 +11,23 @@ export const Container = styled.div`
   margin-bottom: 16px;
 `;
 
-export const InputForm = styled.input`
+interface InputFormProps {
+  error: boolean;
+}
+
+export const InputForm = styled.input<InputFormProps>`
   width: 100%;
   height: 40px;
   border-radius: 6px;
   background: transparent;
-  border: 1px solid ${(props) => props.theme.colors.gray[250]};
+  border: ${(props) =>
+    props.error
+      ? `1px solid ${props.theme.colors.red[900]}`
+      : `1px solid ${props.theme.colors.gray[250]}`};
   padding: 8px;
+`;
+
+export const ErrorMsg = styled.span`
+  display: inline-block;
+  color: ${(props) => props.theme.colors.red[900]};
 `;

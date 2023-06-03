@@ -1,0 +1,4 @@
+configurationset:
+  - configuration:
+      name: stepzen_config
+      uri: postgresql://db.iqlbhqghvmkautoygaas.supabase.co/postgres?user=postgres&password=M%40nuamor00200299.1
