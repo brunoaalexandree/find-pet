@@ -13,6 +13,7 @@ interface IButton {
   isLoading?: boolean;
   onClick?: () => void;
   weight?: 400 | 500 | 600 | 700;
+  disabled?: boolean;
 }
 
 export function Button({
@@ -27,6 +28,7 @@ export function Button({
   isLoading,
   onClick,
   weight,
+  disabled,
 }: IButton) {
   return (
     <Container
@@ -35,7 +37,7 @@ export function Button({
       colorText={colorText}
       paddingY={paddingY}
       width={width}
-      disabled={isLoading}
+      disabled={isLoading || disabled}
       onClick={onClick}
     >
       {isLoading ? (

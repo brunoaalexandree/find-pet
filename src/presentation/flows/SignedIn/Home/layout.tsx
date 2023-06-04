@@ -62,6 +62,7 @@ export function HomeLayout({
           <FeedContainer>
             {pets.map((pet) => (
               <CardFeed
+                disabledFavorite={!authenticated}
                 key={pet.id}
                 background={pet.image}
                 cardSize={getRandomSize()}
@@ -69,10 +70,11 @@ export function HomeLayout({
                 description={pet.description}
                 onFavorite={() => handleAddFavoritePet(pet.photo_uid, userId)}
                 favorited={
-                  authenticated &&
-                  favoritesPets.some(
-                    (favorite: any) => favorite.photo_id === pet.photo_uid
-                  )
+                  authenticated
+                    ? favoritesPets.some(
+                        (favorite: any) => favorite.photo_id === pet.photo_uid
+                      )
+                    : false
                 }
               />
             ))}

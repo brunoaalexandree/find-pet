@@ -4,13 +4,14 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../../../structure/store';
 
 export function Home() {
-  const { petsData, favoritePetsData, petsLoading } = usePets();
+  const { petsData, favoritePetsData, petsLoading, favoritePetsIsLoading } =
+    usePets();
   const { user, authenticated } = useSelector((state: RootState) => state.user);
 
   return (
     <HomeLayout
       pets={petsData}
-      isLoading={petsLoading}
+      isLoading={petsLoading || favoritePetsIsLoading}
       authenticated={authenticated}
       userId={user.id}
       favoritesPets={favoritePetsData}

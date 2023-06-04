@@ -10,6 +10,7 @@ interface ICardFeed {
   cardSize: 'small' | 'large';
   onFavorite?: () => void;
   favorited?: boolean;
+  disabledFavorite?: boolean;
 }
 
 export function CardFeed({
@@ -19,6 +20,7 @@ export function CardFeed({
   cardSize,
   favorited,
   onFavorite,
+  disabledFavorite,
 }: ICardFeed) {
   const { colors } = useTheme();
   return (
@@ -31,6 +33,7 @@ export function CardFeed({
         text={favorited ? 'SAVE' : <HeartIcon color="" size={24} />}
         icon={favorited && <HeartIcon color="" size={24} />}
         onClick={onFavorite}
+        disabled={disabledFavorite}
       />
       <Card>
         <Title>{title}</Title>

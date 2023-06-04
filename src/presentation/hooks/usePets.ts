@@ -60,7 +60,7 @@ const usePets = () => {
     return data;
   };
 
-  const { data: favoritePetsData } = useQuery(
+  const { data: favoritePetsData, isLoading: favoritePetsIsLoading } = useQuery(
     'favorites',
     getFavoritePetByUser,
     {
@@ -74,6 +74,7 @@ const usePets = () => {
     petsLoading: isLoading,
     handleAddFavoritePet,
     favoritePetsData,
+    favoritePetsIsLoading,
   };
 };
 
