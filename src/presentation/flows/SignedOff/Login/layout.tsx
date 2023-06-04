@@ -25,9 +25,15 @@ interface ILoginLayout {
   control: Control<any>;
   errors: FieldErrors;
   handleSubmit: () => void;
+  isLoading: boolean;
 }
 
-export function LoginLayout({ control, handleSubmit, errors }: ILoginLayout) {
+export function LoginLayout({
+  control,
+  handleSubmit,
+  errors,
+  isLoading,
+}: ILoginLayout) {
   const { colors } = useTheme();
 
   return (
@@ -74,6 +80,7 @@ export function LoginLayout({ control, handleSubmit, errors }: ILoginLayout) {
             paddingY={11}
             background={colors.red[800]}
             colorText={colors.white}
+            isLoading={isLoading}
           />
         </LoginForm>
 

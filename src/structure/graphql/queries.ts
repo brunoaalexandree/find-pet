@@ -9,6 +9,17 @@ export const GET_PETS = gql`
       id
       image
       title
+      photo_uid
+    }
+  }
+`;
+
+export const FAVORITE_PET = gql`
+  mutation setFavoritePet($photo_id: ID!, $user_id: ID!) {
+    insertFavorites(photo_id: $photo_id, user_id: $user_id) {
+      id
+      photo_id
+      user_id
     }
   }
 `;

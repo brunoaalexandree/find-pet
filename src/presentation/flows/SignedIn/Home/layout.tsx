@@ -12,29 +12,35 @@ import {
   GradientEffect,
   Content,
 } from './style';
+import usePets from '../../../hooks/usePets';
 
 interface IHomeLayout {
   pets: {
     id: string;
     image: string;
     title: string;
+    photo_uid: string;
     description: string;
     created_at: string;
     created_by: string;
   }[];
   isLoading: boolean;
-  session: any;
-  user: any;
   authenticated: boolean;
+  userId: string;
+  favoritesPets: any;
+  favoritesLength?: number;
 }
 
 export function HomeLayout({
   pets,
   isLoading,
-  user,
-  session,
   authenticated,
+  userId,
+  favoritesPets,
+  favoritesLength,
 }: IHomeLayout) {
+  const { handleAddFavoritePet } = usePets();
+
   if (isLoading) {
     return <Loading />;
   }
@@ -43,7 +49,10 @@ export function HomeLayout({
     <>
       <Container>
         <TopSection>
-          <Header authenticated={authenticated} />
+          <Header
+            authenticated={authenticated}
+            favoritesLength={authenticated ? favoritesLength : undefined}
+          />
           <SearchBox>
             <SearchBar />
           </SearchBox>
@@ -58,11 +67,19 @@ export function HomeLayout({
                 cardSize={getRandomSize()}
                 title={pet.title}
                 description={pet.description}
+                onFavorite={() => handleAddFavoritePet(pet.photo_uid, userId)}
+                favorited={
+                  authenticated &&
+                  favoritesPets.some(
+                    (favorite: any) => favorite.photo_id === pet.photo_uid
+                  )
+                }
               />
             ))}
           </FeedContainer>
         </Content>
       </Container>
+
       <Footer />
     </>
   );

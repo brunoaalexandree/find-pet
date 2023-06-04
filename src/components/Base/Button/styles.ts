@@ -37,22 +37,19 @@ export const Container = styled.button<ButtonProps>`
         ? `background-color: ${props.backgroundHover}`
         : 'filter: brightness(1.13);'}
   }
-
-  &:active {
-    background-color: ${(props) => props.theme.colors.red[900]};
-  }
-
-  &:disabled {
-    background: ${(props) => props.theme.colors.gray[300]};
-    color: ${(props) => props.theme.colors.gray[400]};
-  }
 `;
 
 interface TextProps {
   sizeInRem?: string;
+  weight?: 400 | 500 | 600 | 700;
 }
 
 export const Text = styled.p<TextProps>`
   font-size: ${(props) => (props.sizeInRem ? props.sizeInRem : '1rem')};
-  font-weight: bold;
+  font-weight: ${(props) => (props.weight ? props.weight : '700')};
+`;
+
+export const LoadingIcon = styled.object`
+  width: 20px;
+  height: 20px;
 `;

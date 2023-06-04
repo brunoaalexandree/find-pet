@@ -20,15 +20,14 @@ import useLogin from '../../../../hooks/useLogin';
 
 interface IHeader {
   authenticated: boolean;
+  favoritesLength?: number;
 }
 
-export function Header({ authenticated }: IHeader) {
+export function Header({ authenticated, favoritesLength }: IHeader) {
   const { colors } = useTheme();
   const { onLogout } = useLogin();
 
   function handleLogout() {
-    console.log('aqui');
-
     onLogout();
   }
 
@@ -45,10 +44,15 @@ export function Header({ authenticated }: IHeader) {
             <li>Contact</li>
           </ul>
           <Button
-            icon={<HeartIcon color={colors.gray[400]} size={24} />}
-            text="SAVE"
-            colorText={colors.gray[400]}
-            background={colors.gray[250]}
+            icon={
+              <HeartIcon
+                color={favoritesLength ? colors.red[800] : colors.gray[400]}
+                size={24}
+              />
+            }
+            text={favoritesLength ? `${favoritesLength} PETS` : 'SAVE'}
+            colorText={favoritesLength ? colors.red[800] : colors.gray[400]}
+            background={favoritesLength ? colors.red[200] : colors.gray[250]}
             width="93px"
             paddingY={8}
             textSizeInRem="0.875rem"
@@ -60,6 +64,7 @@ export function Header({ authenticated }: IHeader) {
                 text="Login"
                 textSizeInRem="1.25rem"
                 width="53px"
+                weight={500}
               />
             </Link>
           ) : (

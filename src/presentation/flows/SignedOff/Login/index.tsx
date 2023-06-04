@@ -25,7 +25,7 @@ export function Login() {
     resolver: loginResolver,
   });
 
-  const { onLogin, error } = useLogin();
+  const { onLogin, error, isLoading } = useLogin();
   const navigate = useNavigate();
 
   async function handleLogin(dataForm: any) {
@@ -41,6 +41,7 @@ export function Login() {
       control={control}
       handleSubmit={handleSubmit(handleLogin)}
       errors={errors}
+      isLoading={isLoading}
     />
   );
 }

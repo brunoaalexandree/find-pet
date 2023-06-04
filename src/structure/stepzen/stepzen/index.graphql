@@ -5,6 +5,7 @@ type Pets {
   description: String
   created_by: String
   created_at: DateTime
+  photo_uid: ID
 }
 
 type Users {
@@ -34,7 +35,7 @@ type Query {
       type: "postgresql"
       schema: "public"
       query: """
-      SELECT "created_at", "created_by", "description", "id", "image", "title" FROM "Pets" LIMIT $1 OFFSET $2
+      SELECT "created_at", "created_by", "description", "id", "image", "photo_uid", "title" FROM "Pets" LIMIT $1 OFFSET $2
       """
       configuration: "stepzen_config"
     )

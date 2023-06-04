@@ -1,0 +1,76 @@
+type Favorites {
+  user_id: ID
+  photo_id: ID
+  id: ID!
+  created_at: DateTime
+}
+
+"""
+The following queries are just a set of examples of how to access your schema.
+Feel free to modify them or aggregate more.
+"""
+type Query {
+  " Queries for type 'Favorites' "
+  favoritesByPhoto_id(photo_id: ID!): [Favorites]
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      table: "Favorites"
+      configuration: "stepzen_config"
+    )
+  favoritesByPhoto_idAndCreated_at(
+    photo_id: ID!
+    created_at: DateTime!
+  ): [Favorites]
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      table: "Favorites"
+      configuration: "stepzen_config"
+    )
+  favoritesList: [Favorites]
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      table: "Favorites"
+      configuration: "stepzen_config"
+    )
+  favoritesPaginatedList(first: Int, after: Int): [Favorites]
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      query: """
+      SELECT "created_at", "id", "photo_id", "user_id" FROM "Favorites" LIMIT $1 OFFSET $2
+      """
+      configuration: "stepzen_config"
+    )
+}
+
+"""
+The following mutations are just a set of examples of how to access your schema.
+Feel free to modify them or aggregate more.
+"""
+type Mutation {
+  " Mutations for type 'Favorites' "
+  deleteFavorites(
+    created_at: DateTime!
+    photo_id: ID!
+    user_id: ID!
+    id: ID!
+  ): Favorites
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      table: "Favorites"
+      dml: DELETE
+      configuration: "stepzen_config"
+    )
+  insertFavorites(created_at: DateTime, photo_id: ID, user_id: ID): Favorites
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      table: "Favorites"
+      dml: INSERT
+      configuration: "stepzen_config"
+    )
+}

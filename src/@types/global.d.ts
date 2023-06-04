@@ -7,6 +7,8 @@ declare module 'styled-components' {
         900: string;
         800: string;
         700: string;
+        200: string;
+        100: string;
       };
       text: {
         title: string;
