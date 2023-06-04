@@ -1,14 +1,18 @@
 import { ReactNode } from 'react';
-import { Container, Text } from './styles';
+import Svg from '../../../assets/logo-loading.svg';
+import { Container, LoadingIcon, Text } from './styles';
 interface IButton {
   width?: string;
   paddingY?: number;
   background?: string;
   backgroundHover?: string;
   colorText?: string;
-  text?: string;
+  text?: string | ReactNode;
   textSizeInRem?: string;
   icon?: ReactNode;
+  isLoading?: boolean;
+  onClick?: () => void;
+  weight?: 400 | 500 | 600 | 700;
 }
 
 export function Button({
@@ -20,6 +24,9 @@ export function Button({
   text,
   textSizeInRem,
   icon,
+  isLoading,
+  onClick,
+  weight,
 }: IButton) {
   return (
     <Container
@@ -28,9 +35,21 @@ export function Button({
       colorText={colorText}
       paddingY={paddingY}
       width={width}
+      disabled={isLoading}
+      onClick={onClick}
     >
-      {icon && icon}
-      <Text sizeInRem={textSizeInRem}>{text}</Text>
+      {isLoading ? (
+        <LoadingIcon type="image/svg+xml" data={Svg}>
+          Loading
+        </LoadingIcon>
+      ) : (
+        <>
+          {icon && icon}
+          <Text sizeInRem={textSizeInRem} weight={weight}>
+            {text}
+          </Text>
+        </>
+      )}
     </Container>
   );
 }
