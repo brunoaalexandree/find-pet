@@ -39,6 +39,10 @@ export const Hashtags = styled.div`
     overflow: visible;
     border-bottom: 1px solid ${(props) => props.theme.colors.gray[350]};
   }
+
+  @media only screen and (max-width: 820px) {
+    overflow: hidden;
+  }
 `;
 
 export const SocialMedias = styled.div`
@@ -62,6 +66,20 @@ export const SocialMedias = styled.div`
   @media only screen and (max-width: 980px) {
     button {
       width: 256px;
+      border-right: 1px solid ${(props) => props.theme.colors.gray[350]};
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    button {
+      width: 200px;
+      border-right: 1px solid ${(props) => props.theme.colors.gray[350]};
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    button {
+      width: 150px;
       border-right: 1px solid ${(props) => props.theme.colors.gray[350]};
     }
   }
@@ -97,7 +115,21 @@ export const Bottom = styled.div`
     gap: 56px;
 
     h1 {
+      width: 100%;
       max-width: 426px;
+    }
+  }
+
+  @media only screen and (max-width: 400px) {
+    padding-top: 72px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 56px;
+
+    h1 {
+      width: 100%;
+      max-width: 426px;
+      font-size: 3rem;
     }
   }
 `;
