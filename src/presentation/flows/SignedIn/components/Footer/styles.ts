@@ -12,6 +12,12 @@ export const TopFooter = styled.div`
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid ${(props) => props.theme.colors.gray[350]};
+
+  @media only screen and (max-width: 980px) {
+    height: 176px;
+    flex-direction: column;
+    border: 1px solid ${(props) => props.theme.colors.gray[350]};
+  }
 `;
 
 export const Hashtags = styled.div`
@@ -26,6 +32,16 @@ export const Hashtags = styled.div`
     font-weight: 500;
     font-size: 1.25rem;
     color: ${(props) => props.theme.colors.gray[800]};
+  }
+
+  @media only screen and (max-width: 980px) {
+    width: 100%;
+    overflow: visible;
+    border-bottom: 1px solid ${(props) => props.theme.colors.gray[350]};
+  }
+
+  @media only screen and (max-width: 820px) {
+    overflow: hidden;
   }
 `;
 
@@ -45,6 +61,27 @@ export const SocialMedias = styled.div`
     border-bottom: 0px;
     background: transparent;
     font-size: 1.25rem;
+  }
+
+  @media only screen and (max-width: 980px) {
+    button {
+      width: 256px;
+      border-right: 1px solid ${(props) => props.theme.colors.gray[350]};
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    button {
+      width: 200px;
+      border-right: 1px solid ${(props) => props.theme.colors.gray[350]};
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    button {
+      width: 150px;
+      border-right: 1px solid ${(props) => props.theme.colors.gray[350]};
+    }
   }
 `;
 
@@ -69,5 +106,30 @@ export const Bottom = styled.div`
   p {
     font-size: 1.25rem;
     color: ${(props) => props.theme.colors.text.title};
+  }
+
+  @media only screen and (max-width: 980px) {
+    padding-top: 72px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 56px;
+
+    h1 {
+      width: 100%;
+      max-width: 426px;
+    }
+  }
+
+  @media only screen and (max-width: 400px) {
+    padding-top: 72px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 56px;
+
+    h1 {
+      width: 100%;
+      max-width: 426px;
+      font-size: 3rem;
+    }
   }
 `;

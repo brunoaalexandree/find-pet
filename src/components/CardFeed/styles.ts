@@ -32,6 +32,12 @@ export const Container = styled.div<ContainerProps>`
   &:hover {
     cursor: pointer;
   }
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    max-width: 344px;
+    height: ${(props) =>
+      props.cardSize === 'small' ? '344px' : props.cardSize && '544px'};
+  }
 `;
 
 export const Card = styled.div`

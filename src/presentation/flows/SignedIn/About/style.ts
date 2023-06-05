@@ -35,6 +35,14 @@ export const Content = styled.main`
   margin: 0 auto;
   max-width: 1440px;
   padding: 128px 0px;
+
+  @media only screen and (max-width: 980px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 56px;
+  }
 `;
 
 export const TextContent = styled.div`
@@ -57,6 +65,17 @@ export const TextContent = styled.div`
     font-size: 1.25rem;
     color: ${(props) => props.theme.colors.text.title};
   }
+
+  @media only screen and (max-width: 480px) {
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+      max-width: 344px;
+    }
+  }
 `;
 
 export const ImgContent = styled.div`
@@ -66,6 +85,24 @@ export const ImgContent = styled.div`
   img {
     width: 632px;
     height: 632px;
+  }
+
+  @media only screen and (max-width: 980px) {
+    order: -1;
+
+    img {
+      width: 329px;
+      height: 335px;
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    order: -1;
+
+    img {
+      width: 240px;
+      height: 240px;
+    }
   }
 `;
 

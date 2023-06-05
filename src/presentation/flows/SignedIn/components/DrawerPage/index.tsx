@@ -5,6 +5,7 @@ import {
   DrawerContent,
   Overlay,
   Title,
+  TitleMobile,
   ToggleButton,
 } from './styles';
 import { Button } from '../../../../../components/Base/Button';
@@ -12,6 +13,7 @@ import { HeartIcon } from '../../../../../components/Icons/HeartIcon';
 
 import { CardFeed } from '../../../../../components/CardFeed';
 import { useTheme } from 'styled-components';
+import { CrossIcon } from '../../../../../components/Icons/CrossIcon';
 
 interface IDrawerPage {
   open: boolean;
@@ -41,7 +43,9 @@ export function DrawerPage({
   const { colors } = useTheme();
   return (
     <>
-      <ToggleButton onClick={onClose}>{open && 'x'}</ToggleButton>
+      <ToggleButton onClick={onClose}>
+        {open && <CrossIcon color="#fff" size={40} />}
+      </ToggleButton>
       <Overlay open={open} onClick={onClose} />
 
       <DrawerContainer open={open}>
@@ -66,6 +70,16 @@ export function DrawerPage({
               width="100px"
             />
           </Title>
+
+          <TitleMobile>
+            <h1>
+              {title} - {description}
+            </h1>
+            <div>
+              <span>{firstLetter}</span>
+              <p>Photography by {author}</p>
+            </div>
+          </TitleMobile>
           <img src={image} />
           <AlsoLikeTitle>
             <h1>You may also like</h1>
