@@ -7,7 +7,7 @@ interface ICardFeed {
   title: string;
   description: string;
   background: string;
-  cardSize: 'small' | 'large' | 'box';
+  cardSize: 'small' | 'medium' | 'large';
   onFavorite?: () => void;
   favorited?: boolean;
   disabledFavorite?: boolean;

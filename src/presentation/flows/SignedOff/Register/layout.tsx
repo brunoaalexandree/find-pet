@@ -18,7 +18,10 @@ import {
   Options,
   RightContent,
   SocialButtonsContainer,
+  LeftIconBox,
 } from './styles';
+import { Link } from 'react-router-dom';
+import { LeftIcon } from '../../../../components/Icons/LeftIcon';
 
 interface IRegisterLayout {
   handleSubmit: () => void;
@@ -47,6 +50,11 @@ export function RegisterLayout({
         </p>
       </LeftContent>
       <RightContent>
+        <LeftIconBox>
+          <Link to="/login">
+            <LeftIcon color="#000" size={24} />
+          </Link>
+        </LeftIconBox>
         <RegisterForm onSubmit={handleSubmit}>
           <h1>Create an account</h1>
           <Controller

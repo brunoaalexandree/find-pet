@@ -4,7 +4,6 @@ import { Button } from '../../../../../components/Base/Button';
 import { HeartIcon } from '../../../../../components/Icons/HeartIcon';
 
 import LogoImg from '../../../../../assets/logo-black.svg';
-import profile from '../../../../../assets/foto02.png';
 import {
   Container,
   Content,
@@ -15,8 +14,10 @@ import {
   RightContent,
   UserMenu,
 } from './styles';
-import { ArrowDownIcon } from '../../../../../components/Icons/FacebookIcon copy';
+import { ArrowDownIcon } from '../../../../../components/Icons/ArrowDownIcon';
 import useLogin from '../../../../hooks/useLogin';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../../../structure/store';
 
 interface IHeader {
   authenticated: boolean;
@@ -31,16 +32,22 @@ export function Header({ authenticated, favoritesLength }: IHeader) {
     onLogout();
   }
 
+  const { user } = useSelector((state: RootState) => state.user);
+
   return (
     <Container>
       <Content>
         <LeftContent>
-          <Logo src={LogoImg} alt="Finder Pet" />
+          <Link to="/">
+            <Logo src={LogoImg} alt="Finder Pet" />
+          </Link>
           <span>let's explore your pet!</span>
         </LeftContent>
         <RightContent>
           <ul>
-            <li>About</li>
+            <Link to="/about">
+              <li>About</li>
+            </Link>
             <li>Contact</li>
           </ul>
           <Button
@@ -70,7 +77,7 @@ export function Header({ authenticated, favoritesLength }: IHeader) {
           ) : (
             <UserMenu>
               <div>
-                <img src={profile} />
+                <span>{user.user_metadata.name.substr(0, 1)}</span>
                 <ArrowDownIcon color={colors.text.title} size={32} />
               </div>
               <DropDownContainer>

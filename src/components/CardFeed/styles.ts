@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 interface ContainerProps {
   background: string;
-  cardSize: 'small' | 'large' | 'box';
+  cardSize: 'small' | 'medium' | 'large';
 }
 
 export const Container = styled.div<ContainerProps>`
   width: 100%;
-  max-width: ${(props) => (props.cardSize === 'box' ? '374px' : '576px')};
+  max-width: ${(props) => (props.cardSize === 'medium' ? '374px' : '576px')};
   padding: 32px;
 
   background: url(${(props) => props.background});
@@ -27,7 +27,7 @@ export const Container = styled.div<ContainerProps>`
         ? 18
         : props.cardSize === 'large'
         ? 29
-        : props.cardSize === 'box' && 10};
+        : props.cardSize === 'medium' && 10};
 
   &:hover {
     cursor: pointer;

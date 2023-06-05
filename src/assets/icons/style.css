@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'Zenit';
-  src:  url('fonts/Zenit.eot?g0zcua');
-  src:  url('fonts/Zenit.eot?g0zcua#iefix') format('embedded-opentype'),
-    url('fonts/Zenit.ttf?g0zcua') format('truetype'),
-    url('fonts/Zenit.woff?g0zcua') format('woff'),
-    url('fonts/Zenit.svg?g0zcua#Zenit') format('svg');
+  src:  url('fonts/Zenit.eot?9twqpn');
+  src:  url('fonts/Zenit.eot?9twqpn#iefix') format('embedded-opentype'),
+    url('fonts/Zenit.ttf?9twqpn') format('truetype'),
+    url('fonts/Zenit.woff?9twqpn') format('woff'),
+    url('fonts/Zenit.svg?9twqpn#Zenit') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-arrow_left:before {
+  content: "\e90a";
+}
 .icon-cross:before {
   content: "\e909";
 }

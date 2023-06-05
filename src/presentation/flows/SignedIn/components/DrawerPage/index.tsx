@@ -74,7 +74,7 @@ export function DrawerPage({
             {displayPets.map((pet) => (
               <CardFeed
                 background={pet.image}
-                cardSize="box"
+                cardSize="medium"
                 title={pet.title}
                 description={pet.description}
               />

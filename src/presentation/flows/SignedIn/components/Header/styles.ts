@@ -86,10 +86,16 @@ export const UserMenu = styled.div`
     }
   }
 
-  img {
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    background: ${(props) => props.theme.colors.red[900]};
+    color: ${(props) => props.theme.colors.white};
+    font-weight: bold;
   }
 `;
 

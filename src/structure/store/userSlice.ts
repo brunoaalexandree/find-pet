@@ -14,6 +14,10 @@ const slice = createSlice({
       aud: '',
       role: '',
       email: '',
+      user_metadata: {
+        name: '',
+        username: '',
+      },
     },
   },
   reducers: {
