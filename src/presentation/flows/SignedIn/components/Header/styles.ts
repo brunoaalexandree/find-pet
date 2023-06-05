@@ -7,6 +7,10 @@ export const Container = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media only screen and (max-width: 979px) {
+    padding: 56px 24px;
+  }
 `;
 
 export const Content = styled.div`
@@ -21,6 +25,20 @@ export const LeftContent = styled.div`
   display: flex;
   align-items: center;
   gap: 24px;
+
+  @media only screen and (max-width: 480px) {
+    span {
+      display: none;
+    }
+  }
+`;
+
+export const MenuResponsiveControl = styled.div`
+  display: none;
+
+  @media only screen and (max-width: 979px) {
+    display: inline-block;
+  }
 `;
 
 export const DropDown = styled.div`
@@ -65,6 +83,20 @@ export const RightContent = styled.div`
       color: ${(props) => props.theme.colors.text.title};
     }
   }
+
+  @media only screen and (max-width: 979px) {
+    width: auto;
+    justify-content: flex-end;
+    ul {
+      display: none;
+    }
+  }
+`;
+
+export const ResponsiveControl = styled.div`
+  @media only screen and (max-width: 979px) {
+    display: none;
+  }
 `;
 
 export const UserMenu = styled.div`
@@ -99,4 +131,16 @@ export const UserMenu = styled.div`
   }
 `;
 
-export const Logo = styled.img``;
+export const Logo = styled.img`
+  display: inline-block;
+  @media only screen and (max-width: 480px) {
+    display: none;
+  }
+`;
+
+export const LogoMobile = styled.img`
+  display: none;
+  @media only screen and (max-width: 480px) {
+    display: inline-block;
+  }
+`;

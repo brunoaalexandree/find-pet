@@ -40,6 +40,11 @@ export const DrawerContainer = styled.div<Props>`
     width: 6px;
     background: transparent;
   }
+
+  @media only screen and (max-width: 979px) {
+    height: 100%;
+    border-top-left-radius: 0px;
+  }
 `;
 
 export const DrawerContent = styled.div`
@@ -57,6 +62,10 @@ export const DrawerContent = styled.div`
     max-width: 576px;
     margin-top: 120px;
   }
+
+  @media only screen and (max-width: 979px) {
+    padding: 120px 24px;
+  }
 `;
 
 export const ToggleButton = styled.button`
@@ -68,6 +77,12 @@ export const ToggleButton = styled.button`
   border: none;
   color: #fff;
   font-size: 32px;
+
+  @media only screen and (max-width: 979px) {
+    i {
+      color: #000 !important;
+    }
+  }
 `;
 
 export const CloseButton = styled.button`
@@ -115,6 +130,51 @@ export const Title = styled.header`
       }
     }
   }
+
+  @media only screen and (max-width: 480px) {
+    display: none;
+  }
+`;
+
+export const TitleMobile = styled.header`
+  display: none;
+
+  @media only screen and (max-width: 480px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    h1 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: ${(props) => props.theme.colors.text.title};
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+
+      gap: 16px;
+
+      span {
+        width: 48px;
+        height: 48px;
+        background: ${(props) => props.theme.colors.red[800]};
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: ${(props) => props.theme.colors.white};
+        font-weight: bold;
+        border-radius: 50%;
+      }
+
+      p {
+        color: #8b8b8b;
+        font-weight: 400;
+      }
+    }
+  }
 `;
 
 export const AlsoLikeTitle = styled.div`
@@ -127,6 +187,10 @@ export const AlsoLikeTitle = styled.div`
     font-size: 1.5rem;
     font-weight: 600;
   }
+
+  @media only screen and (max-width: 768px) {
+    justify-content: center;
+  }
 `;
 
 export const AlsoLike = styled.div`
@@ -137,4 +201,12 @@ export const AlsoLike = styled.div`
   gap: 40px;
   margin-top: 32px;
   padding-bottom: 32px;
+
+  @media only screen and (max-width: 979px) {
+    grid-template-columns: repeat(auto-fill, 336px);
+  }
+
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, 344);
+  }
 `;
