@@ -1,7 +1,7 @@
 import { useTheme } from 'styled-components';
 import { SearchIcon } from '../../Icons/SearchIcon';
 import { Container, Content } from './styles';
-import { Control, Controller, UseFormWatch } from 'react-hook-form';
+import { Control, Controller } from 'react-hook-form';
 
 interface ISearchBar {
   control: Control;

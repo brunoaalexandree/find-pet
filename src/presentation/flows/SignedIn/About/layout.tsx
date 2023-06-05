@@ -1,12 +1,9 @@
-import { SearchBar } from '../../../../components/Base/SearchBar';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { Loading } from '../../../../components/Loading';
 import {
   Container,
-  SearchBox,
   TopSection,
-  GradientEffect,
   Content,
   TextContent,
   ImgContent,

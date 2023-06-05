@@ -1,4 +1,4 @@
-import { Controller, FieldError, FieldErrors } from 'react-hook-form';
+import { Controller, FieldErrors } from 'react-hook-form';
 
 import { Input } from '../../../../components/Base/Input';
 import { useTheme } from 'styled-components';

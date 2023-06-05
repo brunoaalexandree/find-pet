@@ -5,7 +5,7 @@ import { RootState } from '../../../../structure/store';
 
 export function About() {
   const { favoritePetsData, favoritePetsIsLoading } = usePets();
-  const { user, authenticated } = useSelector((state: RootState) => state.user);
+  const { authenticated } = useSelector((state: RootState) => state.user);
 
   return (
     <AboutLayout
