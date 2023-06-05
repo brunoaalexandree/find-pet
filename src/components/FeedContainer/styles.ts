@@ -10,6 +10,10 @@ export const Container = styled.div`
   grid-template-columns: repeat(auto-fill, 576px);
   gap: 32px;
 
+  @media only screen and (max-width: 980px) {
+    grid-template-columns: repeat(auto-fill, 330px);
+  }
+
   @media only screen and (max-width: 600px) {
     display: flex;
     flex-direction: column;

@@ -17,7 +17,7 @@ import {
 import usePets from '../../../hooks/usePets';
 import { DrawerPage } from '../components/DrawerPage';
 import { useState } from 'react';
-import { Control, UseFormWatch } from 'react-hook-form';
+import { Control } from 'react-hook-form';
 
 interface IHomeLayout {
   pets: {
@@ -118,7 +118,7 @@ export function HomeLayout({
         </Content>
       </Container>
 
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
