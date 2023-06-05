@@ -123,3 +123,8 @@ export const SocialButtonsContainer = styled.div`
   gap: 11px;
   margin-bottom: 32px;
 `;
+
+export const LoginError = styled.span`
+  font-size: 0.75rem;
+  color: ${(props) => props.theme.colors.red[900]};
+`;

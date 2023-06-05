@@ -15,6 +15,7 @@ import {
   Container,
   LeftContent,
   LeftIconBox,
+  LoginError,
   LoginForm,
   Options,
   RightContent,
@@ -28,6 +29,7 @@ interface ILoginLayout {
   errors: FieldErrors;
   handleSubmit: () => void;
   isLoading: boolean;
+  loginError?: boolean;
 }
 
 export function LoginLayout({
@@ -35,6 +37,7 @@ export function LoginLayout({
   handleSubmit,
   errors,
   isLoading,
+  loginError,
 }: ILoginLayout) {
   const { colors } = useTheme();
 
@@ -82,6 +85,9 @@ export function LoginLayout({
               />
             )}
           />
+          {loginError && (
+            <LoginError>E-mail ou Senha estão incorretos.</LoginError>
+          )}
           <Button
             text="Sign In"
             paddingY={11}

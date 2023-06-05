@@ -4,6 +4,7 @@ import { yupResolver as YR } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { LoginLayout } from './layout';
 import useLogin from '../../../hooks/useLogin';
+import { useState } from 'react';
 
 export function Login() {
   const loginSchema = Yup.object().shape({
@@ -25,14 +26,18 @@ export function Login() {
     resolver: loginResolver,
   });
 
-  const { onLogin, error, isLoading } = useLogin();
+  const { onLogin, isLoading } = useLogin();
   const navigate = useNavigate();
 
-  async function handleLogin(dataForm: any) {
-    await onLogin(dataForm);
+  const [loginError, setLoginError] = useState(false);
 
-    if (!error) {
+  async function handleLogin(dataForm: any) {
+    const res = await onLogin(dataForm);
+
+    if (res?.payload.session !== null) {
       navigate('/');
+    } else {
+      setLoginError(true);
     }
   }
 
@@ -42,6 +47,7 @@ export function Login() {
       handleSubmit={handleSubmit(handleLogin)}
       errors={errors}
       isLoading={isLoading}
+      loginError={loginError}
     />
   );
 }
