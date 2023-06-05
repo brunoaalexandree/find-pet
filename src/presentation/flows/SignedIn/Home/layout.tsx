@@ -11,10 +11,13 @@ import {
   TopSection,
   GradientEffect,
   Content,
+  SearchText,
+  ResultText,
 } from './style';
 import usePets from '../../../hooks/usePets';
 import { DrawerPage } from '../components/DrawerPage';
 import { useState } from 'react';
+import { Control, UseFormWatch } from 'react-hook-form';
 
 interface IHomeLayout {
   pets: {
@@ -31,6 +34,8 @@ interface IHomeLayout {
   userId: string;
   favoritesPets: any;
   favoritesLength?: number;
+  control: Control;
+  textWatch: string;
 }
 
 export function HomeLayout({
@@ -40,6 +45,8 @@ export function HomeLayout({
   userId,
   favoritesPets,
   favoritesLength,
+  control,
+  textWatch,
 }: IHomeLayout) {
   const { handleAddFavoritePet } = usePets();
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -63,8 +70,14 @@ export function HomeLayout({
             favoritesLength={authenticated ? favoritesLength : undefined}
           />
           <SearchBox>
-            <SearchBar />
+            <SearchBar control={control} />
           </SearchBox>
+          <SearchText>{textWatch}</SearchText>
+          {textWatch && textWatch.length >= 1 && (
+            <ResultText>
+              <span>some</span> results found this search
+            </ResultText>
+          )}
           <GradientEffect />
         </TopSection>
         <Content>

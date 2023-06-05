@@ -18,6 +18,20 @@ export const TopSection = styled.div`
   margin-bottom: -50px;
 `;
 
+export const SearchText = styled.h1`
+  color: ${(props) => props.theme.colors.text.title};
+  font-size: 3.5rem;
+`;
+
+export const ResultText = styled.p`
+  font-size: 2rem !important;
+  color: ${(props) => props.theme.colors.gray[450]};
+
+  span {
+    color: ${(props) => props.theme.colors.text.title};
+  }
+`;
+
 export const SearchBox = styled.main`
   width: 100%;
   max-width: 1180px;

@@ -6,6 +6,7 @@ type Pets {
   created_by: String
   created_at: DateTime
   photo_uid: ID
+  tag: String
 }
 
 type Users {

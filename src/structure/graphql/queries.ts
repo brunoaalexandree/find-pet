@@ -10,6 +10,7 @@ export const GET_PETS = gql`
       image
       title
       photo_uid
+      tag
     }
   }
 `;
