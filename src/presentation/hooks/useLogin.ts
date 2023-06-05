@@ -5,7 +5,6 @@ import { LoginRequestDTO } from '../../structure/services/Login/dtos/LoginReques
 import { signin } from '../../structure/store/userSlice';
 import { RootState } from '../../structure/store';
 import { logout } from '../../structure/store/userSlice';
-import { useState } from 'react';
 
 const useLogin = () => {
   const { login } = LoginService;
@@ -13,8 +12,6 @@ const useLogin = () => {
 
   const dispatch = useDispatch();
   const stateUser = useSelector((state: RootState) => state.user);
-
-  const [loginError, setLoginError] = useState(false);
 
   const onLogin = async (user: LoginRequestDTO) => {
     try {
@@ -40,7 +37,6 @@ const useLogin = () => {
     onLogin,
     onLogout,
     getUser,
-    loginError,
   };
 };
 
