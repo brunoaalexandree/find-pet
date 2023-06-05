@@ -62,6 +62,10 @@ export const DrawerContent = styled.div`
     max-width: 576px;
     margin-top: 120px;
   }
+
+  @media only screen and (max-width: 979px) {
+    padding: 120px 24px;
+  }
 `;
 
 export const ToggleButton = styled.button`
@@ -138,6 +142,10 @@ export const AlsoLikeTitle = styled.div`
     font-size: 1.5rem;
     font-weight: 600;
   }
+
+  @media only screen and (max-width: 768px) {
+    justify-content: center;
+  }
 `;
 
 export const AlsoLike = styled.div`
@@ -148,4 +156,12 @@ export const AlsoLike = styled.div`
   gap: 40px;
   margin-top: 32px;
   padding-bottom: 32px;
+
+  @media only screen and (max-width: 979px) {
+    grid-template-columns: repeat(auto-fill, 336px);
+  }
+
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, 344);
+  }
 `;

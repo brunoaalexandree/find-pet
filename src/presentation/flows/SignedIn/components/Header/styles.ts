@@ -21,6 +21,12 @@ export const LeftContent = styled.div`
   display: flex;
   align-items: center;
   gap: 24px;
+
+  @media only screen and (max-width: 480px) {
+    span {
+      display: none;
+    }
+  }
 `;
 
 export const MenuResponsiveControl = styled.div`

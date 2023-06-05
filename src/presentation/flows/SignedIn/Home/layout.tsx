@@ -118,7 +118,7 @@ export function HomeLayout({
         </Content>
       </Container>
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

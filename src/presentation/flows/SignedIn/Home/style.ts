@@ -4,6 +4,7 @@ import backgroundVectors from '../../../../assets/background_vectors.png';
 
 export const Container = styled.div`
   background: url(${backgroundVectors});
+  width: 100%;
 `;
 
 export const TopSection = styled.div`
@@ -35,6 +36,11 @@ export const ResultText = styled.p`
 export const SearchBox = styled.main`
   width: 100%;
   max-width: 1180px;
+
+  @media only screen and (max-width: 979px) {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
 `;
 
 export const GradientEffect = styled.div`
@@ -47,6 +53,13 @@ export const GradientEffect = styled.div`
 export const Content = styled.main`
   width: 100%;
   padding: 0 64px;
+
+  @media only screen and (max-width: 979px) {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 export const LoadMore = styled.div`

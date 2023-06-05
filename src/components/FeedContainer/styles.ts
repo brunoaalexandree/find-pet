@@ -9,4 +9,11 @@ export const Container = styled.div`
   justify-content: center;
   grid-template-columns: repeat(auto-fill, 576px);
   gap: 32px;
+
+  @media only screen and (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `;
