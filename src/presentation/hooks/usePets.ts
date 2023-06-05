@@ -60,6 +60,16 @@ const usePets = () => {
     return data;
   };
 
+  const getPetsByTag = async (tag: string) => {
+    const { data, error } = await supabase.from('Pets').select().eq('tag', tag);
+
+    if (error) {
+      throw new Error('Error fetching favorites.');
+    }
+
+    return data;
+  };
+
   const { data: favoritePetsData, isLoading: favoritePetsIsLoading } = useQuery(
     'favorites',
     getFavoritePetByUser,
@@ -75,6 +85,7 @@ const usePets = () => {
     handleAddFavoritePet,
     favoritePetsData,
     favoritePetsIsLoading,
+    getPetsByTag,
   };
 };
 
