@@ -23,6 +23,14 @@ export const LeftContent = styled.div`
   gap: 24px;
 `;
 
+export const MenuResponsiveControl = styled.div`
+  display: none;
+
+  @media only screen and (max-width: 979px) {
+    display: inline-block;
+  }
+`;
+
 export const DropDown = styled.div`
   display: none !important;
   position: absolute;
@@ -64,6 +72,20 @@ export const RightContent = styled.div`
       font-weight: 500;
       color: ${(props) => props.theme.colors.text.title};
     }
+  }
+
+  @media only screen and (max-width: 979px) {
+    width: auto;
+    justify-content: flex-end;
+    ul {
+      display: none;
+    }
+  }
+`;
+
+export const ResponsiveControl = styled.div`
+  @media only screen and (max-width: 979px) {
+    display: none;
   }
 `;
 
