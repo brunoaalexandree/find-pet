@@ -12,6 +12,7 @@ import { HeartIcon } from '../../../../../components/Icons/HeartIcon';
 
 import { CardFeed } from '../../../../../components/CardFeed';
 import { useTheme } from 'styled-components';
+import { CrossIcon } from '../../../../../components/Icons/CrossIcon';
 
 interface IDrawerPage {
   open: boolean;
@@ -41,7 +42,9 @@ export function DrawerPage({
   const { colors } = useTheme();
   return (
     <>
-      <ToggleButton onClick={onClose}>{open && 'x'}</ToggleButton>
+      <ToggleButton onClick={onClose}>
+        {open && <CrossIcon color="#fff" size={40} />}
+      </ToggleButton>
       <Overlay open={open} onClick={onClose} />
 
       <DrawerContainer open={open}>

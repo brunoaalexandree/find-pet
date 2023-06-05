@@ -40,6 +40,11 @@ export const DrawerContainer = styled.div<Props>`
     width: 6px;
     background: transparent;
   }
+
+  @media only screen and (max-width: 979px) {
+    height: 100%;
+    border-top-left-radius: 0px;
+  }
 `;
 
 export const DrawerContent = styled.div`
@@ -68,6 +73,12 @@ export const ToggleButton = styled.button`
   border: none;
   color: #fff;
   font-size: 32px;
+
+  @media only screen and (max-width: 979px) {
+    i {
+      color: #000 !important;
+    }
+  }
 `;
 
 export const CloseButton = styled.button`
