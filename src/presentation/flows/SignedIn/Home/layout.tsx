@@ -13,6 +13,8 @@ import {
   Content,
 } from './style';
 import usePets from '../../../hooks/usePets';
+import { DrawerPage } from '../components/DrawerPage';
+import { useState } from 'react';
 
 interface IHomeLayout {
   pets: {
@@ -40,9 +42,16 @@ export function HomeLayout({
   favoritesLength,
 }: IHomeLayout) {
   const { handleAddFavoritePet } = usePets();
+  const [openDrawer, setOpenDrawer] = useState(false);
+  const [selectedPet, setSelectedPet] = useState<any>(null);
 
   if (isLoading) {
     return <Loading />;
+  }
+
+  function handleOpenDrawerPet(pet: any) {
+    setSelectedPet(pet);
+    setOpenDrawer(true);
   }
 
   return (
@@ -76,8 +85,22 @@ export function HomeLayout({
                       )
                     : false
                 }
+                onClick={() => handleOpenDrawerPet(pet)}
               />
             ))}
+            {openDrawer && selectedPet && (
+              <DrawerPage
+                open={openDrawer}
+                title={selectedPet.title}
+                description={selectedPet.description}
+                author={selectedPet.created_by}
+                image={selectedPet.image}
+                petSelectedId={selectedPet.id}
+                pets={pets}
+                onClose={() => setOpenDrawer(false)}
+                firstLetter={selectedPet.created_by.substr(0, 1)}
+              />
+            )}
           </FeedContainer>
         </Content>
       </Container>

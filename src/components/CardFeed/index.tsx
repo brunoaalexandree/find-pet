@@ -7,10 +7,11 @@ interface ICardFeed {
   title: string;
   description: string;
   background: string;
-  cardSize: 'small' | 'large';
+  cardSize: 'small' | 'large' | 'box';
   onFavorite?: () => void;
   favorited?: boolean;
   disabledFavorite?: boolean;
+  onClick?: () => void;
 }
 
 export function CardFeed({
@@ -21,10 +22,11 @@ export function CardFeed({
   favorited,
   onFavorite,
   disabledFavorite,
+  onClick,
 }: ICardFeed) {
   const { colors } = useTheme();
   return (
-    <Container background={background} cardSize={cardSize}>
+    <Container background={background} cardSize={cardSize} onClick={onClick}>
       <Button
         background={favorited ? colors.red[200] : colors.white}
         width={favorited ? '93px' : '40px'}
