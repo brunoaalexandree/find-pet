@@ -22,6 +22,11 @@ export const TopSection = styled.div`
 export const SearchText = styled.h1`
   color: ${(props) => props.theme.colors.text.title};
   font-size: 3.5rem;
+
+  @media only screen and (max-width: 480px) {
+    font-size: 2rem;
+    text-align: center;
+  }
 `;
 
 export const ResultText = styled.p`
@@ -30,6 +35,11 @@ export const ResultText = styled.p`
 
   span {
     color: ${(props) => props.theme.colors.text.title};
+  }
+
+  @media only screen and (max-width: 480px) {
+    font-size: 1rem;
+    text-align: center;
   }
 `;
 
