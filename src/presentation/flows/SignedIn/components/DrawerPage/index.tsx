@@ -5,6 +5,7 @@ import {
   DrawerContent,
   Overlay,
   Title,
+  TitleMobile,
   ToggleButton,
 } from './styles';
 import { Button } from '../../../../../components/Base/Button';
@@ -69,6 +70,16 @@ export function DrawerPage({
               width="100px"
             />
           </Title>
+
+          <TitleMobile>
+            <h1>
+              {title} - {description}
+            </h1>
+            <div>
+              <span>{firstLetter}</span>
+              <p>Photography by {author}</p>
+            </div>
+          </TitleMobile>
           <img src={image} />
           <AlsoLikeTitle>
             <h1>You may also like</h1>

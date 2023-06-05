@@ -35,10 +35,15 @@ export const DrawerContainer = styled.div<Props>`
 
   display: flex;
   justify-content: center;
-
+  transition: width 0.3s ease;
   @media only screen and (max-width: 979px) {
     height: 100%;
     border-top-left-radius: 0px;
+  }
+
+  @media only screen and (max-width: 480px) {
+    width: ${({ open }) => (open ? '100%' : '0')};
+    padding-right: ${({ open }) => (open ? '24px' : '0')};
   }
 `;
 
@@ -64,6 +69,7 @@ export const DrawerContent = styled.div`
     li {
       font-size: 1.25rem;
       font-weight: 600;
+      color: ${(props) => props.theme.colors.text.title};
     }
   }
 `;

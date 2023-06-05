@@ -40,7 +40,9 @@ export function DrawerMenu({ open, onClose, authenticated }: IDrawerMenu) {
       <DrawerContainer open={open}>
         <DrawerContent>
           <ul>
-            <li>About</li>
+            <Link to="/about">
+              <li>About</li>
+            </Link>
             <li>Contact</li>
           </ul>
           <Divider />

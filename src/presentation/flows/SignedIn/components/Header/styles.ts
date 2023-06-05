@@ -7,6 +7,10 @@ export const Container = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media only screen and (max-width: 979px) {
+    padding: 56px 24px;
+  }
 `;
 
 export const Content = styled.div`
@@ -127,4 +131,16 @@ export const UserMenu = styled.div`
   }
 `;
 
-export const Logo = styled.img``;
+export const Logo = styled.img`
+  display: inline-block;
+  @media only screen and (max-width: 480px) {
+    display: none;
+  }
+`;
+
+export const LogoMobile = styled.img`
+  display: none;
+  @media only screen and (max-width: 480px) {
+    display: inline-block;
+  }
+`;

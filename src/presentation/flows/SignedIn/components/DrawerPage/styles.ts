@@ -130,6 +130,51 @@ export const Title = styled.header`
       }
     }
   }
+
+  @media only screen and (max-width: 480px) {
+    display: none;
+  }
+`;
+
+export const TitleMobile = styled.header`
+  display: none;
+
+  @media only screen and (max-width: 480px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    h1 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: ${(props) => props.theme.colors.text.title};
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+
+      gap: 16px;
+
+      span {
+        width: 48px;
+        height: 48px;
+        background: ${(props) => props.theme.colors.red[800]};
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: ${(props) => props.theme.colors.white};
+        font-weight: bold;
+        border-radius: 50%;
+      }
+
+      p {
+        color: #8b8b8b;
+        font-weight: 400;
+      }
+    }
+  }
 `;
 
 export const AlsoLikeTitle = styled.div`

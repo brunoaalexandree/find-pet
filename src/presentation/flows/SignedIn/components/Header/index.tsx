@@ -4,6 +4,8 @@ import { Button } from '../../../../../components/Base/Button';
 import { HeartIcon } from '../../../../../components/Icons/HeartIcon';
 
 import LogoImg from '../../../../../assets/logo-black.svg';
+import LogoMobileImg from '../../../../../assets/mobile_logo.svg';
+
 import {
   Container,
   Content,
@@ -11,6 +13,7 @@ import {
   DropDownContainer,
   LeftContent,
   Logo,
+  LogoMobile,
   MenuResponsiveControl,
   ResponsiveControl,
   RightContent,
@@ -55,6 +58,7 @@ export function Header({ authenticated, favoritesLength }: IHeader) {
             </MenuResponsiveControl>
             <Link to="/">
               <Logo src={LogoImg} alt="Finder Pet" />
+              <LogoMobile src={LogoMobileImg} alt="Finder Pet" />
             </Link>
             <span>let's explore your pet!</span>
           </LeftContent>
