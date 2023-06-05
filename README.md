@@ -28,6 +28,15 @@ In the project I found some challenges, starting with the suggested technologies
 - <a href="https://github.com/jquense/yup">Yup</a>
 - <a href="https://reactrouter.com/en/main">React Router Dom</a>
 
+### What can be improved
+
+- Pet disfavor function.
+- Implement profile pictures.
+- Support login via other networks such as google, facebook, twitter, etc.
+- Improvements in typings, as some are set to any.
+- Maybe switch from Stepzen to Prisma, due to Prisma having wider support with Graphql.
+- Better more user interaction.
+
 ## How to install
 
 #### Install all the project dependencies
