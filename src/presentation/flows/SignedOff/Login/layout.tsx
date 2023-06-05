@@ -14,12 +14,14 @@ import { TwitterIcon } from '../../../../components/Icons/TwitterIcon';
 import {
   Container,
   LeftContent,
+  LeftIconBox,
   LoginForm,
   Options,
   RightContent,
   SocialButtonsContainer,
 } from './styles';
 import { Link } from 'react-router-dom';
+import { LeftIcon } from '../../../../components/Icons/LeftIcon';
 
 interface ILoginLayout {
   control: Control<any>;
@@ -50,6 +52,11 @@ export function LoginLayout({
         </p>
       </LeftContent>
       <RightContent>
+        <LeftIconBox>
+          <Link to="/">
+            <LeftIcon color="#000" size={24} />
+          </Link>
+        </LeftIconBox>
         <LoginForm onSubmit={handleSubmit}>
           <h1>Sign In</h1>
           <Controller
@@ -101,9 +108,11 @@ export function LoginLayout({
               icon={<TwitterIcon size={24} color={colors.gray[900]} />}
             />
           </SocialButtonsContainer>
-          <h2>
-            <span>Not a member? </span> <Link to="/signup">Sign up now</Link>
-          </h2>
+          <Link to="/signup">
+            <h2>
+              <span>Not a member? </span> Sign up now
+            </h2>
+          </Link>
         </Options>
       </RightContent>
     </Container>

@@ -66,8 +66,14 @@ export const RightContent = styled.div`
   background: ${(props) => props.theme.colors.white};
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+`;
+
+export const LeftIconBox = styled.div`
+  width: 100%;
+  height: 24px;
+  padding: 24px;
 `;
 
 export const RegisterForm = styled.form`

@@ -3,7 +3,7 @@ import { Container, ErrorMsg, InputForm } from './styles';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   labelText: string;
-  error?: string;
+  error?: any;
 }
 
 export function Input({ labelText, error, ...props }: InputProps) {
