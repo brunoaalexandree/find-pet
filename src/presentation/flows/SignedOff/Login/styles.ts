@@ -6,6 +6,10 @@ export const Container = styled.main`
   flex: 1;
   display: flex;
   flex-direction: row;
+
+  @media only screen and (max-width: 979px) {
+    flex-direction: column;
+  }
 `;
 
 export const LeftContent = styled.div`
@@ -47,6 +51,10 @@ export const LeftContent = styled.div`
     font-weight: 400;
     color: ${(props) => props.theme.colors.gray[200]};
   }
+
+  @media only screen and (max-width: 979px) {
+    display: none;
+  }
 `;
 
 export const RightContent = styled.div`
@@ -57,6 +65,10 @@ export const RightContent = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  @media only screen and (max-width: 979px) {
+    width: 100%;
+  }
 `;
 
 export const LoginForm = styled.form`
